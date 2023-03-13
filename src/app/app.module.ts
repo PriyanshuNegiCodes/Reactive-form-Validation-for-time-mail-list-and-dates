@@ -16,6 +16,7 @@ import {MatIconModule} from '@angular/material/icon';
 import { HeaderComponent } from './header/header.component';
 import { FormComponent } from './form/form.component';
 import {MatGridListModule} from '@angular/material/grid-list';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,9 @@ import {MatGridListModule} from '@angular/material/grid-list';
     MatButtonModule,
     MatToolbarModule,
     MatIconModule,
-    MatGridListModule
+    MatGridListModule,
+    MatSelectModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

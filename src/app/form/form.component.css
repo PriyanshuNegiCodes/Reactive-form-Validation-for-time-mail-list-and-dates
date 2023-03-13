@@ -34,6 +34,6 @@
     color: red;
   }
 
-  .ng-invalid[required], .ng-valid[required]{
+  /* .ng-valid[required], .ng-alid[required]{
     border-bottom: 2px solid rgb(185, 109, 109);
-  }
+  } */

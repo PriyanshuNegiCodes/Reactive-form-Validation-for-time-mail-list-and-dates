@@ -2,25 +2,41 @@
     <form >
         <mat-form-field class="AddTitle three" [formGroup]="register">
             <mat-label>Add Title</mat-label>
-            <input matInput placeholder="Ex. Pizza" fromControlName="Title">
+            <input matInput placeholder="Ex. Pizza" formControlName="Title">
+            <p *ngIf="getTitleStatus?.errors?.['required'] ">Event Title is Required</p>
+
           </mat-form-field>       
-          <p *ngIf="getTitleStatus?.errors?.['required']">Event Title is Required</p>
 
+          <!--  -->
 
+          <!--  -->
           <div class="three">
             <mat-form-field appearance="fill" class="example-full-width">
                 <mat-label>From Date</mat-label>
-                <input matInput [matDatepicker]="picker" >
+                <input matInput [matDatepicker]="picker" formControlName="DateInitial" >
                 <mat-hint>MM/DD/YYYY</mat-hint>
                 <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
+                <!-- <p *ngIf="getfirstDate ?.errors?.['required']">The date is required </p> -->
+                <p *ngIf="getfirstDate ?.errors?.['dateError']">The date is invalid </p>
+
             </mat-form-field>
-              <!--  -->
-              <mat-form-field class="example-full-width">
-                <mat-label></mat-label>
-                <input matInput placeholder="Ex. Pizza">
-              </mat-form-field>
     
+
+
+              <!--  -->
+
+              <mat-form-field>
+                <mat-label>Select a time value</mat-label>
+                <mat-select [(value)]="selectedTimeValue">
+                  <mat-option *ngFor="let value of timeValues" [value]="value">
+                    {{ value }}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+              
+              
+
               <mat-form-field class="example-full-width">
                 <mat-label>Favorite food</mat-label>
                 <input matInput placeholder="Ex. Pizza" >
