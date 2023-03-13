@@ -1,26 +1,29 @@
 <div class="box">
     <form >
-        <mat-form-field class="AddTitle three">
+        <mat-form-field class="AddTitle three" [formGroup]="register">
             <mat-label>Add Title</mat-label>
-            <input matInput placeholder="Ex. Pizza" value="Sushi">
-          </mat-form-field>
+            <input matInput placeholder="Ex. Pizza" fromControlName="Title">
+          </mat-form-field>       
+          <p *ngIf="getTitleStatus?.errors?.['required']">Event Title is Required</p>
+
+
           <div class="three">
             <mat-form-field appearance="fill" class="example-full-width">
                 <mat-label>From Date</mat-label>
-                <input matInput [matDatepicker]="picker">
+                <input matInput [matDatepicker]="picker" >
                 <mat-hint>MM/DD/YYYY</mat-hint>
                 <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
-              </mat-form-field>
-              
+            </mat-form-field>
+              <!--  -->
               <mat-form-field class="example-full-width">
                 <mat-label></mat-label>
-                <input matInput placeholder="Ex. Pizza" value="Sushi">
+                <input matInput placeholder="Ex. Pizza">
               </mat-form-field>
     
               <mat-form-field class="example-full-width">
                 <mat-label>Favorite food</mat-label>
-                <input matInput placeholder="Ex. Pizza" value="Sushi">
+                <input matInput placeholder="Ex. Pizza" >
               </mat-form-field>
     
     
@@ -40,7 +43,7 @@
             </mat-form-field>
 
           </div>
-          <button mat-raised-button>Save</button>
+          <button mat-raised-button type="button">Save</button>
     </form>
 
 </div>
