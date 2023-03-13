@@ -1,0 +1,14 @@
+/* 
+  mat-form-field{
+    display: flex;
+    width: 400px;
+  } */
+
+  .box{
+    margin:auto;
+    border-color: rgb(122, 193, 212);
+    border: solid;
+    height: 70%;
+    width: 70%;
+    margin-top: 40px;
+  }
