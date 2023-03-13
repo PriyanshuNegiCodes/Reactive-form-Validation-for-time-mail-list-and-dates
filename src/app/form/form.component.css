@@ -8,7 +8,24 @@
     margin:auto;
     border-color: rgb(122, 193, 212);
     border: solid;
-    height: 70%;
-    width: 70%;
+    height: auto;
+    width: 95%;
     margin-top: 40px;
+  }
+
+  .AddTitle{
+    
+    width: 60vw;
+  }
+  .three{
+    display: flex;
+  }
+  .example-full-width{
+    margin-right: 10px;
+  }
+  .textarea{
+    width: 40vw;
+  }
+  button{
+    margin-bottom: 20px;
   }
