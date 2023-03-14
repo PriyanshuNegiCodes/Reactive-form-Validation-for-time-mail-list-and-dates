@@ -1,9 +1,10 @@
 
 import { Component } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { FormGroup } from '@angular/forms';
 import { CustomValidator } from '../customvalidator';
+import { formatDate } from '@angular/common';
 
 @Component({
   selector: 'app-form',
@@ -12,13 +13,19 @@ import { CustomValidator } from '../customvalidator';
 })
 export class FormComponent {
   
+  minDate=formatDate(new Date(),"yyyy-MM-dd","en-in");
+  
   constructor (private fb: FormBuilder, private _snackBar: MatSnackBar){ }
   
   register=this.fb.group({
     Title:['', [Validators.required]],
-    DateInitial:['', [Validators.required  , CustomValidator.dateCheck]]
-  })
+    DateInitial:['', [Validators.required]],
+    DateFinal: [''],
+    time1:[''],
+    time2:['']
+  }, {validators:[CustomValidator.dateValidator, CustomValidator.timeValidator]})
 
+  
   get getTitleStatus(){
     return this.register.get("Title")
   }
@@ -30,6 +37,7 @@ export class FormComponent {
 
   timeValues:string[]=[];
   selectedTimeValue: string|any;
+  selectedTimeValue2: string|any
   ngOnInit():any {
     for (let i = 0; i < 24; i++) {
       for (let j = 0; j < 60; j += 15) {
@@ -51,32 +59,5 @@ export class FormComponent {
     }
     
   }
-
-  
-  // timeValue():any{
-  //   for (let hour = 0; hour <= 23; hour++) {
-  //     for (let minute = 0; minute < 60; minute += 15) {
-  //       const hourString = hour.toString().padStart(2, '0');
-  //       const minuteString = minute.toString().padStart(2, '0');
-  //       const timeString = `${hourString}:${minuteString}`;
-  //       this.timeValues.push(timeString);
-  //     }
-  // }
-
-  //   check(){
-//     const time1 = '11:59';
-// const time2 = '12:00';
-
-// const date1 = new Date(`2000-01-01T${time1}:00`);
-// const date2 = new Date(`2000-01-01T${time2}:00`);
-
-// if (date1.getTime() > date2.getTime()) {
-//   console.log(`${time1} is later than ${time2}`);
-// } else if (date1.getTime() < date2.getTime()) {
-//   console.log(`${time1} is earlier than ${time2}`);
-// } else {
-//   console.log(`${time1} is the same as ${time2}`);
-// }
-//   }
   }
 

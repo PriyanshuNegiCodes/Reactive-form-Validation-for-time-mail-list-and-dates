@@ -3,7 +3,9 @@
     display: flex;
     width: 400px;
   } */
-
+.three mat-form-field{
+  margin-right: 10px;
+}
   .box{
     margin:auto;
     border-color: rgb(122, 193, 212);
@@ -14,7 +16,6 @@
   }
 
   .AddTitle{
-    
     width: 60vw;
   }
   .three{
