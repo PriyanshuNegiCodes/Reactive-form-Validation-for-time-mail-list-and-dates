@@ -20,9 +20,9 @@ export class FormComponent {
   register=this.fb.group({
     Title:['', [Validators.required]],
     DateInitial:['', [Validators.required]],
-    DateFinal: [''],
-    time1:[''],
-    time2:['']
+    DateFinal: ['', [Validators.required]],
+    time1:['', [Validators.required]],
+    time2:['', [Validators.required]]
   }, {validators:[CustomValidator.dateValidator, CustomValidator.timeValidator]})
 
   
@@ -33,6 +33,16 @@ export class FormComponent {
   get getfirstDate(){
     
     return this.register.get("DateInitial")
+  }
+  get getEndDate(){
+    
+    return this.register.get("DateFinal")
+  }
+  get getStartTime(){
+    return this.register.get("time1")
+  }
+  get getEndTime(){
+    return this.register.get("time2")
   }
 
   timeValues:string[]=[];
