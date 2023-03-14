@@ -16,7 +16,9 @@ export class FormComponent {
   minDate=formatDate(new Date(),"yyyy-MM-dd","en-in");
   
   constructor (private fb: FormBuilder, private _snackBar: MatSnackBar){ }
-  
+
+
+
   register=this.fb.group({
     Title:['', [Validators.required]],
     DateInitial:['', [Validators.required]],
@@ -24,7 +26,11 @@ export class FormComponent {
     time1:['', [Validators.required]],
     time2:['', [Validators.required]]
   }, {validators:[CustomValidator.dateValidator, CustomValidator.timeValidator]})
-
+  
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action);
+   
+  }
   
   get getTitleStatus(){
     return this.register.get("Title")
