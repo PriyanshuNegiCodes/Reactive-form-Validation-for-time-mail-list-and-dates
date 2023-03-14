@@ -17,6 +17,7 @@ import { HeaderComponent } from './header/header.component';
 import { FormComponent } from './form/form.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatSelectModule} from '@angular/material/select';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,8 @@ import {MatSelectModule} from '@angular/material/select';
     MatIconModule,
     MatGridListModule,
     MatSelectModule,
+    FormsModule
+    
     
   ],
   providers: [],

@@ -64,13 +64,28 @@
         <mat-label>Add Event Details</mat-label>
         <textarea matInput placeholder="Add event Details"  rows="8"></textarea>
       </mat-form-field>
-      <mat-form-field appearance="outline" class="emailInputs">
-        <mat-label>Guests*</mat-label>
-        <textarea matInput placeholder="Guests*" rows="3"></textarea>
+
+      <!--  -->
+      <mat-form-field appearance="fill">
+        <mat-label>Guest Email</mat-label>
+        <input matInput placeholder="Add Guest Email" formControlName="guestEmail" [matChipInputFor]="chipList"
+               [matChipInputSeparatorKeyCodes]="separatorKeysCodes" [matChipInputAddOnBlur]="true"
+               (matChipInputTokenEnd)="addGuest($event)">
+
       </mat-form-field>
-      <mat-chip-listbox aria-label="Fish selection" *ngFor="let mails of Guests">
-        <mat-chip-option>{{Guests}}</mat-chip-option>
-      </mat-chip-listbox>
+
+
+      <mat-chip-grid #chipList>
+        <mat-chip *ngFor="let email of guestList" [removable]="true" (removed)="removeGuest(email)">
+          {{email}}
+          <mat-icon matChipRemove>cancel</mat-icon>
+        </mat-chip>
+        <mat-error class="error" *ngIf="guestEmail?.errors?.['email']">Please enter a valid email</mat-error>
+        <mat-error class="error" *ngIf="guestEmail?.errors?.['emailFormat']">Please enter a valid email format</mat-error>
+      </mat-chip-grid>
+   
+
+      <!--  -->
     </div>
     <button mat-raised-button type="button">Save</button>
   </form>

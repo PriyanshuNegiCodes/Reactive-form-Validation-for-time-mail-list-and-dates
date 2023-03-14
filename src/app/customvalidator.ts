@@ -33,4 +33,21 @@ export class CustomValidator{
       return {timeCheck:true};
    }
   }
+  validateGuestEmails(control: AbstractControl): {[key: string]: any} | null {
+   if (control.value !== '') {
+     const emailString = control.value;
+     const emails = emailString.split(',');
+     const regex = /\S+@\S+.\S+/;
+     for (let email of emails) {
+     email = email.trim();
+     if (!regex.test(email)) {
+     return { 'invalidEmails': true };
+     }
+     }
+     }
+     return null;
+     }
+     
 }
+
+
