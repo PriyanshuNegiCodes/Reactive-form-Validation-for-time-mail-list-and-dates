@@ -18,6 +18,7 @@ import { FormComponent } from './form/form.component';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatSelectModule} from '@angular/material/select';
 import { FormsModule } from '@angular/forms';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { FormsModule } from '@angular/forms';
     MatIconModule,
     MatGridListModule,
     MatSelectModule,
-    FormsModule
+    FormsModule,
+    MatCardModule
     
     
   ],

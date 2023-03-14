@@ -8,11 +8,11 @@
 }
   .box{
     margin:auto;
-    border-color: rgb(122, 193, 212);
-    border: solid;
+  
+   
     height: auto;
     width: 95%;
-    margin-top: 40px;
+    margin-top: 25px;
   }
 
   .AddTitle{
