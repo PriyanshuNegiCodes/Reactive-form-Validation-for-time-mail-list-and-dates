@@ -1,6 +1,6 @@
 
 import { Component } from '@angular/core';
-import { FormBuilder, FormControl, Validators } from '@angular/forms';
+import { EmailValidator, FormBuilder, FormControl, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { FormGroup } from '@angular/forms';
 import { CustomValidator } from '../customvalidator';
@@ -67,7 +67,9 @@ export class FormComponent {
         this.timeValues.push(time);
       }
     }
-    
   }
+
+  guests:string|any=[]
+  
   }
 

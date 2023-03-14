@@ -34,7 +34,9 @@
   p{
     color: red;
   }
-
+  .emailInputs{
+    height: 120px;
+  }
   /* .ng-valid[required], .ng-alid[required]{
     border-bottom: 2px solid rgb(185, 109, 109);
   } */

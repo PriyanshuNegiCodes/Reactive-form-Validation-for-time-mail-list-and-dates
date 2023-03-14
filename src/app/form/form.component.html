@@ -1,69 +1,76 @@
 <div class="box">
   <form [formGroup]="register">
     <!-- Title -->
-    <mat-form-field class="AddTitle three" >
+    <mat-form-field class="AddTitle three" appearance="outline" >
       <mat-label>Add Title</mat-label>
       <input matInput placeholder="Ex. Pizza" formControlName="Title">
-      <p *ngIf="getTitleStatus?.errors?.['required'] ">Event Title is Required</p>
+      <mat-error class="error" *ngIf="getTitleStatus?.errors?.['required']">Event Title is required</mat-error>
     </mat-form-field>
 
     <!-- Calender -->
     <div class="three">
 
-      <mat-form-field appearance="fill">
+      <mat-form-field appearance="outline">
         <mat-label>Choose a date</mat-label>
         <input matInput [matDatepicker]="picker" formControlName="DateInitial" [min]="minDate">
         <mat-hint>MM/DD/YYYY</mat-hint>
         <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
         <mat-datepicker #picker></mat-datepicker>
-        <p *ngIf="getfirstDate?.errors?.['required'] ">Event start date is Required</p>
+        <mat-error *ngIf="getfirstDate?.errors?.['required'] ">Event start date is Required</mat-error>
+
 
         
       </mat-form-field>
    
 
       <!-- Time calculator -->
-      <mat-form-field>
+      <mat-form-field appearance="outline">
         <mat-label>Select a time value</mat-label>
         <mat-select [(value)]="selectedTimeValue" formControlName="time1">
           <mat-option *ngFor="let value of timeValues" [value]="value">
             {{ value }}
           </mat-option>
         </mat-select>
-        <p *ngIf="getStartTime?.errors?.['required'] ">Event start time is Required</p>
+        <mat-error *ngIf="getStartTime?.errors?.['required'] ">Event start time is Required</mat-error>
       </mat-form-field>
 
       <!-- Time calculator 2-->
-      <mat-form-field>
+      <mat-form-field appearance="outline">
         <mat-label>Select a time value</mat-label>
         <mat-select [(value)]="selectedTimeValue2" formControlName="time2">
           <mat-option *ngFor="let value of timeValues" [value]="value">
             {{ value }}
           </mat-option>
         </mat-select>
-        <p *ngIf="getEndTime?.errors?.['required'] ">Event end time is Required</p>
-        <p *ngIf="register?.errors?.['timeCheck']">The time is less than the start time</p>        
+        <mat-error *ngIf="getEndTime?.errors?.['required'] ">Event end time is Required</mat-error>
+        <mat-error *ngIf="register?.errors?.['timeCheck']">The time is less than the start time</mat-error>        
       </mat-form-field>
 
       <!-- Date 2 -->
-      <mat-form-field appearance="fill">
+      <mat-form-field appearance="outline">
         <mat-label>Choose a date</mat-label>
         <input matInput [matDatepicker]="picker1" formControlName="DateFinal" [min]="minDate">
         <mat-hint>MM/DD/YYYY</mat-hint>
         <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
         <mat-datepicker #picker1></mat-datepicker>
-        <p *ngIf="register?.errors?.['dateCheck']">The date is less than the start date</p>  
-        <p *ngIf="getEndDate?.errors?.['required'] ">Event End date is Required</p>      
+        <mat-error *ngIf="register?.errors?.['dateCheck']">The date is less than the start date</mat-error>  
+        <mat-error *ngIf="getEndDate?.errors?.['required'] ">Event End date is Required</mat-error>      
       </mat-form-field>
       
     </div>
 
     <div class="three">
-      <mat-form-field class="textarea">
+      <mat-form-field class="textarea" appearance="outline">
         <mat-label>Add Event Details</mat-label>
-        <textarea matInput placeholder="Ex. It makes me feel..."  rows="8"></textarea>
+        <textarea matInput placeholder="Add event Details"  rows="8"></textarea>
       </mat-form-field>
-
+      <mat-form-field appearance="outline" class="emailInputs">
+        <mat-label>Guests*</mat-label>
+        <textarea matInput placeholder="Guests*" rows="3"></textarea>
+      </mat-form-field>
+      <mat-chip-listbox aria-label="Fish selection" *ngFor="let mails of Guests">
+        <mat-chip-option>{{Guests}}</mat-chip-option>
+      </mat-chip-listbox>
     </div>
     <button mat-raised-button type="button">Save</button>
   </form>
