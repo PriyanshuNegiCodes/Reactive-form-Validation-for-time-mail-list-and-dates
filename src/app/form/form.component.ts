@@ -29,7 +29,7 @@ export class FormComponent {
   
   openSnackBar(message: string, action: string) {
     this._snackBar.open(message, action);
-   
+    location.reload();
   }
   
   get getTitleStatus(){
