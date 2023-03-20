@@ -5,9 +5,9 @@ export class CustomValidator{
 
 
   static dateValidator(ab:AbstractControl){
-  
+
    if(ab.get('DateInitial')?.value<ab.get('DateFinal')?.value){
-      return null;
+       return null;
    }else{
       return {dateCheck:true};
    }
