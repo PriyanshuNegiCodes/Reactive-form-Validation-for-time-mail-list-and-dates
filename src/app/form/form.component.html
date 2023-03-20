@@ -44,7 +44,7 @@
             </mat-option>
           </mat-select>
           <mat-error *ngIf="getEndTime?.errors?.['required'] ">Event end time is Required</mat-error>
-          <mat-error *ngIf="register?.errors?.['timeCheck']">The time is less than the start time</mat-error>        
+          <p class="error" *ngIf="register?.errors?.['timeCheck']">The time is less than the start time</p>        
         </mat-form-field>
   
         <!-- Date 2 -->
@@ -54,8 +54,9 @@
           <mat-hint>MM/DD/YYYY</mat-hint>
           <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
           <mat-datepicker #picker1></mat-datepicker>
-          <mat-error *ngIf="register?.errors?.['dateCheck']">The date is less than the start date</mat-error>  
+          <!-- <mat-error *ngIf="register?.errors?.['dateCheck']">The date is less than the start date</mat-error>   -->
           <mat-error *ngIf="getEndDate?.errors?.['required'] ">Event End date is Required</mat-error>      
+          <p class="error" *ngIf=" register?.errors?.['dateCheck']">The date is less than the start date</p>  
         </mat-form-field>
         
       </div>

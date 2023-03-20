@@ -22,7 +22,7 @@ export class FormComponent {
   register=this.fb.group({
     Title:['', [Validators.required]],
     DateInitial:['', [Validators.required]],
-    DateFinal: ['', [Validators.required]],
+    DateFinal: ['', [Validators.required,]],
     time1:['', [Validators.required]],
     time2:['', [Validators.required]]
   }, {validators:[CustomValidator.dateValidator, CustomValidator.timeValidator]})
@@ -76,7 +76,7 @@ export class FormComponent {
   }
   guestList: string[] = [];
   separatorKeysCodes: number[] = [ENTER, COMMA];
-      guestEmail = new FormControl('', [Validators.email]);
+  guestEmail = new FormControl('', [Validators.email]);
 
       addGuest(event: MatChipInputEvent): void {
         const input = event.input;
@@ -114,5 +114,13 @@ export class FormComponent {
           this.guestList.splice(index, 1);
         }
       }
-  
+          
   }
+
+
+
+
+
+
+
+ 
